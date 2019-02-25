@@ -18,7 +18,6 @@ class List extends Component {
         while (condition) {
             if(JSON.stringify(this.props) !== JSON.stringify(this.state.settings))
                 this.setState({
-                    loading:true,
                     settings:{ ...this.props}
                 })
             let raw = await (await fetch(`${this.props.feedUrl}?limit=${this.props.numberPosts}`)).json();
@@ -29,8 +28,10 @@ class List extends Component {
                     date: post.created_at
                 }
             });
-            if (JSON.stringify(posts) !== JSON.stringify(this.state.posts))
-                this.setState({ loading:false, posts });
+            if (JSON.stringify(posts) !== JSON.stringify(this.state.posts)) {
+                this.setState({ posts });
+                this.props.onLoadedPosts() ;
+            }
             await sleep(this.props.updateInterval * 1000);
         }
     }
@@ -43,9 +44,6 @@ class List extends Component {
             )
         });
         return (<div>
-            <div style={{display:this.state.loading?'inline-block':'none'}}> 
-                Loading ...
-            </div>
             {data}
         </div>)
     }

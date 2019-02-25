@@ -11,6 +11,7 @@ class SocialFeed extends Component {
     constructor(props) {
         super(props) ; 
         this.state = {
+            loading:false,
             displayingSettings:false,
             settings:{
                 feedUrl: props.feedUrl,
@@ -37,10 +38,16 @@ class SocialFeed extends Component {
     }
     updateSettings(state){
         this.setState({ 
+            loading:true,
             displayingSettings: !this.state.displayingSettings,
             settings:{...state}
         }) ;
         // alert('Settings have been updated') ;
+    }
+    loadedPosts(){
+        this.setState({
+            loading:false
+        })
     }
     render() {
         let view ;
@@ -51,7 +58,7 @@ class SocialFeed extends Component {
         }
         else{
             view = (<div className={s.list}>
-                <List {...this.state.settings}></List>
+                <List {...this.state.settings} onLoadedPosts={this.loadedPosts.bind(this)}></List>
             </div>) ; 
         }
         return (<div className={s.wrapper}>
@@ -59,6 +66,11 @@ class SocialFeed extends Component {
                 <Header inSettings={this.state.displayingSettings} onToggleSettings={this.toggleSettings.bind(this)} ></Header>
             </div>
             <div className={s.separator} />
+            <div style={{display:this.state.loading?'flex':'none'}}> 
+                <div className={s.loading}>
+                    Loading ...
+                </div>
+            </div>
             {view}
         </div>)
     }

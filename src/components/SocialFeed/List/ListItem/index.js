@@ -29,7 +29,12 @@ class ListItem extends Component {
             displayViewMore:false
         })
     }
+    formatDate(date){
+        var d = new Date(date);
+        return d.toLocaleString("en-GB").slice(0,-3).replace(',','') ; 
+    }
     render() {
+        
         return(<div className={s.wrapper}>
             <div className={s.author}>
                 {this.state.author}
@@ -43,7 +48,7 @@ class ListItem extends Component {
                 </div>
             </div>
             <div className={s.footer}>
-                {this.props.date}
+                {this.formatDate(this.props.date)}
             </div>
         </div>)
     }

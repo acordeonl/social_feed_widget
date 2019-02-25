@@ -48,7 +48,8 @@
 }
 
 input {
-    width: 300px ;
+    text-align: center ;
+    width: 250px ;
     font-family: 'Roboto', sans-serif;
     font-weight: 300 ;
     height: 25px ;

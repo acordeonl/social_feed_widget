@@ -30,6 +30,11 @@ class Settings extends Component {
             case 'numberPosts':
                 if(!this.isValidNumber(event , 'Number of Posts'))
                     break ;
+                let num = parseInt(event.target.value) ; 
+                if(event.target.value.length > 0 && num > 200) {
+                    alert(`Number of posts must be lower than 200`) ; 
+                    return false ;
+                }
                 this.setState({
                     numberPosts:event.target.value
                 })
