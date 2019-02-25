@@ -8,7 +8,7 @@
 
 Project includes a social feed based on a Stream API (http://dev.massrelevance.com/docs/api/v1.0/stream/#ref-params-standard) and options to set Feed URL, Number of posts to display and Update interval.
 
-At the `/src/components/` you may find a SocialFeed component that receives feedUrl, numberPosts and updateInterval as attributes. This component also includes some basic unit testing using [react-testing-library](https://testing-library.com/react) and Jest based con the [create-react-app](https://facebook.github.io/create-react-app/docs/getting-started) scripts. SocialFeed component contains an example of i18n with by using a higher order component(available at `/src/components/SocialFeed/HOC`).
+At the `/src/components/` you may find a SocialFeed component that receives feedUrl, numberPosts and updateInterval as attributes. This component also includes some basic unit testing using [react-testing-library](https://testing-library.com/react) and Jest based con the [create-react-app](https://facebook.github.io/create-react-app/docs/getting-started) scripts. SocialFeed component contains an example of i18n with by using a higher order component (available at `/src/components/SocialFeed/HOC`).
 
 ### Default values 
 `feedUrl = http://api.massrelevance.com/MassRelDemo/kindle.json`
