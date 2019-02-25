@@ -3,6 +3,8 @@ import Header from './Header'
 import Settings from './Settings'
 import List from './List'
 import s from './s.module.css'
+import I18n from './HOC/I18n'
+
 
 class SocialFeed extends Component {
     defaultFeedUrl = 'http://api.massrelevance.com/MassRelDemo/kindle.json'
@@ -51,6 +53,7 @@ class SocialFeed extends Component {
     }
     render() {
         let view ;
+        const t = this.props.t ; 
         if(this.state.displayingSettings) {
             view = (<div className={s.settings}>
                 <Settings {...this.state.settings} onSetDefaultSettings={this.setDefaultSettings.bind(this)} onSaveChanges={this.updateSettings.bind(this)} ></Settings>
@@ -68,7 +71,7 @@ class SocialFeed extends Component {
             <div className={s.separator} />
             <div style={{display:this.state.loading?'flex':'none'}}> 
                 <div className={s.loading}>
-                    Loading ...
+                    {t('main','loading')}
                 </div>
             </div>
             {view}
@@ -76,4 +79,4 @@ class SocialFeed extends Component {
     }
 }
 
-export default SocialFeed;  
+export default I18n(SocialFeed);  

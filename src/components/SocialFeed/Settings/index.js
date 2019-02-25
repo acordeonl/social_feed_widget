@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import s from './s.module.css'
+import I18n from '../HOC/I18n'
+
 
 class Settings extends Component {
     defaultFeedUrl = 'http://api.massrelevance.com/MassRelDemo/kindle.json'
@@ -84,35 +86,36 @@ class Settings extends Component {
         this.props.onSetDefaultSettings() ;
     }
     render() {
+        const t = this.props.t ; 
         return(<div className={s.wrapper}>
             <div className={s.formInput}>
-                <div className={s.label}>Feed URL</div>
+                <div className={s.label}>{t('settings','feedUrl')}</div>
                 <div>
                     <input id='feedUrl' className={s.input} value={this.state.feedUrl} onChange={this.handleInputChange.bind(this)}/>
                 </div>
             </div>
             <div className={s.formInput}>
-                <div className={s.label}> Number of posts</div>
+                <div className={s.label}> {t('settings','numberPosts')}</div>
                 <div>
                     <input id='numberPosts' className={s.input} value={this.state.numberPosts} onChange={this.handleInputChange.bind(this)}/>
                 </div>
             </div>
             <div className={s.formInput}>
-                <div className={s.label}>Update Interval (seconds)</div>
+                <div className={s.label}>{t('settings','updateInterval')}</div>
                 <div>
                     <input id='updateInterval' className={s.input} value={this.state.updateInterval} onChange={this.handleInputChange.bind(this)}/>
                 </div>
             </div>
             <div className={s.footer}>
                 <div onClick={this.setDefault.bind(this)} className={s.saveButton}>
-                    SET DEFAULT
+                    {t('settings','setDefault')}
                 </div>
                 <div onClick={this.saveChanges.bind(this)} className={s.saveButton}>
-                    SAVE
+                    {t('settings','save')}
                 </div>
             </div>
         </div>)
     }
 }
 
-export default Settings;  
+export default I18n(Settings);  
