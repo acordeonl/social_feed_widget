@@ -15,6 +15,10 @@ At the `/src/components/` you may find a SocialFeed component that receives feed
 `numberPosts = 3`
 `UpdateInterval = 2`
 
+## Setup
+
+Open root folder and run `npm install`.
+
 In the project directory, you can run:
 
 ### `npm start`
