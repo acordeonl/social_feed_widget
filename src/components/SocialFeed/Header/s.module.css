@@ -1,0 +1,41 @@
+.wrapper{
+    display: flex ;
+    flex-direction: horizontal ;
+    font-size: 14px;
+    font-weight: 600 ;
+    justify-content: space-between;
+    padding: 13px ;
+}
+
+.settingsWrapper{
+    display: flex ;
+    flex-direction: horizontal ;
+    font-size: 14px;
+    font-weight: 600 ;
+    padding: 13px ;
+}
+
+.icon{
+    opacity: 0.6 ;
+    margin-top:-2px ;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+.icon:hover{
+    cursor:pointer ;
+}
+
+.text{
+    margin-left: 20px ;
+    color: rgb(114, 50, 18) ;
+    font-size: 18px ;
+}
+
+.settingsText{
+    composes:text ;
+    margin-left: 5px ;
+}
